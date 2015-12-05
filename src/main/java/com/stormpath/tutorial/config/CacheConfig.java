@@ -23,31 +23,10 @@ import javax.servlet.DispatcherType;
 
 @Configuration
 public class CacheConfig {
+
     @Autowired
     @Qualifier("stormpathClientApiKey")
     private ApiKey stormpathClientApiKey;
-
-    @Bean
-    public FilterRegistrationBean hazelcastFilter() {
-        FilterRegistrationBean registration = new FilterRegistrationBean(new SpringAwareWebFilter());
-
-        registration.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        registration.addUrlPatterns("/*");
-        registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.FORWARD, DispatcherType.INCLUDE);
-        registration.addInitParameter("sticky-session", "false");
-
-        return registration;
-    }
-
-    @Bean
-    public ServletListenerRegistrationBean<SessionListener> hazelcastSessionListener() {
-        return new ServletListenerRegistrationBean<SessionListener>(new SessionListener());
-    }
-
-    @Bean
-    public SessionRegistry sessionRegistry() {
-        return new SessionRegistryImpl();
-    }
 
     @Bean
     public HazelcastInstance hazelcastInstance() {
