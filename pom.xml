@@ -14,7 +14,8 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -23,15 +24,17 @@
     <version>0.1.0-SNAPSHOT</version>
 
     <name>Stormpath Java SDK :: Tutorials :: Spring Boot Default :: Spring Security Refined</name>
-    <description>A simple Spring Boot Web MVC application with out-of-the-box login and self-service screens!</description>
+    <description>A simple Spring Boot Web MVC application with out-of-the-box login and self-service screens!
+    </description>
 
     <properties>
         <logback.version>1.1.2</logback.version>
         <slf4j.version>1.7.8</slf4j.version>
         <spring.boot.version>1.3.0.RELEASE</spring.boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hazelcast.version>3.6-EA</hazelcast.version>
+        <hazelcast.version>3.5.4</hazelcast.version>
         <stormpath.version>1.0.RC6</stormpath.version>
+        <jdk.version>1.8</jdk.version>
     </properties>
 
     <repositories>
@@ -76,6 +79,20 @@
     </dependencies>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.0</version>
+                    <configuration>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -90,6 +107,7 @@
                 </executions>
             </plugin>
         </plugins>
+
     </build>
 
 </project>
