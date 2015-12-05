@@ -37,13 +37,6 @@
         <jdk.version>1.8</jdk.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>spring-milestone</id>
-            <url>https://repo.spring.io/libs-milestone</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- Compile-time dependencies: -->
         <dependency>
