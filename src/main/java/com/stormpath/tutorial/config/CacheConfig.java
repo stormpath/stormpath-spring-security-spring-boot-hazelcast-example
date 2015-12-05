@@ -45,20 +45,17 @@ public class CacheConfig {
     }
 
     @Bean
-    public SessionRegistry sessionRegistry()
-    {
+    public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
     }
 
     @Bean
-    public HazelcastInstance hazelcastInstance()
-    {
+    public HazelcastInstance hazelcastInstance() {
         return Hazelcast.newHazelcastInstance();
     }
 
     @Bean
-    public CacheManager cacheManager()
-    {
+    public CacheManager cacheManager() {
         // The Stormpath SDK knows to use the Spring CacheManager automatically
         return new HazelcastCacheManager(hazelcastInstance());
     }
