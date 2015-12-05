@@ -6,7 +6,6 @@ import com.hazelcast.spring.cache.HazelcastCacheManager;
 import com.hazelcast.web.SessionListener;
 import com.hazelcast.web.spring.SpringAwareWebFilter;
 import com.stormpath.sdk.api.ApiKey;
-import com.stormpath.spring.CacheCsrfTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;

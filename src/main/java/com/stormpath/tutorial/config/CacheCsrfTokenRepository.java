@@ -1,9 +1,8 @@
-package com.stormpath.spring;
+package com.stormpath.tutorial.config;
 
 import com.stormpath.sdk.lang.Assert;
 import com.stormpath.sdk.lang.Strings;
 import com.stormpath.sdk.servlet.config.CookieConfig;
-import com.stormpath.sdk.servlet.config.impl.DefaultCookieConfig;
 import com.stormpath.sdk.servlet.http.CookieSaver;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;

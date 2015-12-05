@@ -1,4 +1,4 @@
-package com.stormpath.sdk.servlet.config.impl;
+package com.stormpath.tutorial.config;
 
 import com.stormpath.sdk.servlet.config.CookieConfig;
 
