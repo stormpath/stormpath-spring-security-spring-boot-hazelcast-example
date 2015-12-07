@@ -26,11 +26,32 @@ import static com.stormpath.spring.config.StormpathWebSecurityConfigurer.stormpa
  */
 @Configuration
 public class SpringSecurityWebAppConfig extends WebSecurityConfigurerAdapter {
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .apply(stormpath()).and()
-            .authorizeRequests()
-            .antMatchers("/").permitAll();
+                .apply(stormpath()).and()
+                .authorizeRequests()
+                .antMatchers("/").permitAll()
+                .antMatchers("/assets/**").permitAll();
     }
+
+    /*
+     Uncomment the following lines if you would like digitally signed CSRF tokens to be stored in Hazelcast instead of
+     Spring's default approach of using the Http Session (which requires session clustering in a distributed app).
+
+    @Autowired
+    private CacheManager cacheManager;
+
+    @Autowired
+    @Qualifier("stormpathClientApiKey")
+    private ApiKey stormpathClientApiKey;
+
+    @Bean
+    public CsrfTokenRepository csrfTokenRepository() {
+        long ttlMillis = 60 * 60 * 1000; //millis in one hour
+        Cache cache = cacheManager.getCache("csrfTokenNonces");
+        return new CacheCsrfTokenRepository(cache, stormpathClientApiKey.getSecret(), ttlMillis);
+    }
+    */
 }

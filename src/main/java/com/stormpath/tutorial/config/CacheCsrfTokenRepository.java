@@ -36,8 +36,6 @@ public class CacheCsrfTokenRepository implements CsrfTokenRepository {
 
     private String headerName = DEFAULT_CSRF_HEADER_NAME;
 
-    private static final String DEFAULT_CSRF_TOKEN_NAME = "csrfToken";
-
     private static final Logger log = LoggerFactory.getLogger(CacheCsrfTokenRepository.class);
 
     private final Cache nonceCache;
